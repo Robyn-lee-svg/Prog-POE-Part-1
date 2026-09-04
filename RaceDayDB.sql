@@ -14,19 +14,13 @@ Phone VARCHAR(20) NULL,
 CONSTRAINT CK_Uer_Role CHECK (Role IN('Organiser', 'Participant'))
 );
 
-Create table Profiles(
-ProfileID INT IDENTITY(1,1) PRIMARY KEY
-UserID INT NOT NULL UNIQUE,
-Address VARCHAR(255) NULL,
-ProfilePictureURL VARCHAR(500) NULL,
-CONSTRAINT FK_Profile_User FOREIGN KEY (UserID) References Users(UserID)
-);
+
 
 Create table Events(
 EventID INT IDENTITY(1,1) PRIMARY KEY,
 OrganiserID INT NOT NULL,
 Name VARCHAR(150) NOT NULL,
-
+Description VARCHAR(500) NULL,
 EventDate DATE NOT NULL,
 Location VARCHAR(200) NOT NULL,
 Distance DECIMAL(6,2) NOT NULL,
@@ -82,6 +76,8 @@ VALUES
 ('Sarah', 'Naidoo', 'SarahN@gmail.com', 'HASHED_PASSWORD_2', 'Organiser', ' 0765443028'),
 ('Lerato', 'Dlamini', 'LeratoDlamini@gmail.com', 'HASHED_PASSWORD_3', 'Organiser', '0720754276'),
 (' Jonny', 'Lopez', 'JonLopez@gmail.com', 'HASHED_PASSWORD-4'), 'Organiser', ' 0812168042');
+
+
 
   
   
