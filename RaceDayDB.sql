@@ -21,19 +21,7 @@ Create table Profiles(
   FOREIGN KEY (UserID) REFERENCES Users(UserID)
   );
 
-Create table Events(
-EventID INT IDENTITY(1,1) PRIMARY KEY,
-OrganiserID INT NOT NULL,
-Name VARCHAR(150) NOT NULL,
-Description VARCHAR(500) NULL,
-EventDate DATE NOT NULL,
-Location VARCHAR(200) NOT NULL,
-Distance DECIMAL(6,2) NOT NULL,
-EventType VARCHAR(20) NOT NULL,
-CONSTRAINT FK_Event_Organiser FOREIGN KEY (OrgainserID) REFERENCES Users(UserID),
-CONSTRAINT CK_Event_Type CHECK (EventType IN('Run', 'Walk', 'Cycle')),
-CONSTRAINT CK_Event_Distance CHECK (Distance >0)
-);
+
 
 Create table Categories(
   CategoryID INT IDENTITY(1,1) PRIMARY KEY,
@@ -81,6 +69,13 @@ VALUES
 ('Sarah', 'Naidoo', 'SarahN@gmail.com', 'HASHED_PASSWORD_2', 'Organiser', ' 0765443028'),
 ('Lerato', 'Dlamini', 'LeratoDlamini@gmail.com', 'HASHED_PASSWORD_3', 'Organiser', '0720754276'),
 (' Jonny', 'Lopez', 'JonLopez@gmail.com', 'HASHED_PASSWORD-4'), 'Organiser', ' 0812168042');
+
+INSERT INTO Profiles(UserID, Address, ProfilePictureURL)
+VALUES
+(1, 'Johannesburg',' Gauteng', NULL),
+(2,'Cape Town',' Western Cape', NULL),
+(3, 'Pretoria',' Gauteng', NULL),
+(4, 'Durban', 'Kwazulu-Natal', NULL);
 
 
 
