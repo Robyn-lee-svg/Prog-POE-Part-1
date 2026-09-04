@@ -36,4 +36,10 @@ CONSTRAINT CK_Event_Type CHECK (EventType IN('Run', 'Walk', 'Cycle')),
 CONSTRAINT CK_Event_Distance CHECK (Distance >0)
 );
 
-Create table
+Create table Categories(
+  CategoryID INT IDENTITY(1,1) PRIMARY KEY,
+  EventID INT NOT NULL,
+  CategoryName VARCHAR(100) NOT NULL,
+  Description VARCHAR(255) NULL,
+  CONSTRAINT FK_Category_Event FOREIGN KEY(EventID) REFERENCES Events(EventID) ON DELETE CASCADE
+  );
