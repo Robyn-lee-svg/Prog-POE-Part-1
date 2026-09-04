@@ -21,6 +21,20 @@ Create table Profiles(
   FOREIGN KEY (UserID) REFERENCES Users(UserID)
   );
 
+Create table Events(
+EventID INT IDENTITY(1,1) PRIMARY KEY,
+OrganiserID INT NOT NULL,
+Name VARCHAR(150) NOT NULL,
+Description VARCHAR(500) NULL,
+EventDate DATE NOT NULL,
+Location VARCHAR(200) NOT NULL,
+Distance DECIMAL(6,2) NOT NULL,
+EventType VARCHAR(20) NOT NULL,
+CONSTRAINT FK_Event_Organiser FOREIGN KEY (OrgainserID) REFERENCES Users(UserID),
+CONSTRAINT CK_Event_Type CHECK (EventType IN('Run', 'Walk', 'Cycle')),
+CONSTRAINT CK_Event_Distance CHECK (Distance >0)
+);
+
 
 
 Create table Categories(
