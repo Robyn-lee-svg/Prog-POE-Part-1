@@ -91,6 +91,13 @@ VALUES
 (3, 'Pretoria',' Gauteng', NULL),
 (4, 'Durban', 'Kwazulu-Natal', NULL);
 
+INSERT INTO Events(OrganiserID, Name, Description, EventDate, Location, Distance, EventType)
+VALUE
+(1, 'Johannesburg Walk for charity', 'Community event for charity.', ' 2026-11-15', 'Johannesburg', 5.00, 'Walk'),
+(1, ' Cape Town Spring Run', 'Annual road runnung event', '2026-10-14', ' Cape Town', 10.00, 'Run'),
+(2, 'Durban Coastal Cycle', 'Road cycling event along the coast.', '2026-12-09', 'Durban', 21.00, 'Cycle');
+
+
 
 
   
