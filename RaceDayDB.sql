@@ -57,4 +57,15 @@ Create table Enrolments(
   CONSTRAINT CK_Enrolment_Status CHECK (Status IN ('Pending', 'Confirmed', 'Cancelled')),
   CONSTRAINT UQ_Participant_Event UNIQUE (ParticipantID, EventID)
   );
+
+Create table Results(
+  ResultID INT IDENTITY(1,1) PRIMARY KEY,
+  EnrolmentID INT NOT NULL UNIQUE,
+  FinishTime TIME NOT NULL,
+  FinishPosition INT NOT NULL,
+  ResultDate DATE NOT NULL DEFAULT GETDATE(),
+  CONSTRAINT FK_Result_Enrolment FOREIGN KEY(EnrolmentID) REFERENCES Enrolments(EnromentID),
+  CONSTRAINT CK_Result_Position CHECK(FinishPosition >0)
+  );
+  
   
