@@ -92,10 +92,26 @@ VALUES
 (4, 'Durban', 'Kwazulu-Natal', NULL);
 
 INSERT INTO Events(OrganiserID, Name, Description, EventDate, Location, Distance, EventType)
-VALUE
+VALUES
 (1, 'Johannesburg Walk for charity', 'Community event for charity.', ' 2026-11-15', 'Johannesburg', 5.00, 'Walk'),
 (1, ' Cape Town Spring Run', 'Annual road runnung event', '2026-10-14', ' Cape Town', 10.00, 'Run'),
 (2, 'Durban Coastal Cycle', 'Road cycling event along the coast.', '2026-12-09', 'Durban', 21.00, 'Cycle');
+
+INSERT INTO Categories(EventID, CategoryName, Description)
+VALUES
+(1, 'Under 18', 'Participants under 18 years old'),
+(1, 'Senior', 'Senior Participants'),
+(1, '10km', '10km Kilometere category'),
+
+(2, 'Under 20',' Participants under 20 years old'),
+(2, 'Senior', 'Senior Participants'),
+(2, '5km', '5km Kilometere category'),
+
+(3, 'Under 20',' Participants under 20 years old'),
+(3, 'Senior', 'Senior Participants'),
+(3, '21km', '21km Kilometere cycling category');
+
+
 
 
 
