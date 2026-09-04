@@ -123,6 +123,13 @@ Values
 (1, '00:50:35', 46),
 (2, '00:57:12', 67);
 
+INSERT INTO EventBanners(EventID, ImageURL)
+Values
+(1, 'https://storage.example.com/capetown-run.jpg'),
+(2, 'https://storage.example.com/joburg-walk.jpg'),
+(3, 'https://storage.example.com/durban-cycle.jpg');
+
+
 
 
 
