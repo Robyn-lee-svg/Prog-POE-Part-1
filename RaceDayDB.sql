@@ -111,6 +111,12 @@ VALUES
 (3, 'Senior', 'Senior Participants'),
 (3, '21km', '21km Kilometere cycling category');
 
+INSERT INTO Enrolments(ParticipantID, EventID, CategoryID, Status)
+VALUES
+(3,1,3, 'Confirmed'),
+(4,1,2, 'Confirmed'),
+(3,2,6, 'Confirmed'),
+(4,3,9, 'Confirmed');
 
 
 
