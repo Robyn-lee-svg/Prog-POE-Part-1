@@ -75,5 +75,13 @@ Create table EventBanners(
   UploadedDate DATE NOT NULL DEFAULT GETDATE(),
   CONSTRAINT FK_Banner_Event FOREIGN KEY(EventID) REFERENCES Events(EventID) ON DELETE CASCADE
   );
+
+INSERT INTO Users(FirstName, LastName, Email, PasswordHash, Role, Phone)
+VALUES
+('Jamie', 'Smith', 'jamieSmittie@gmail.com','HASHED_PASSWORD_1', 'Organiser', ' 0823334589'),
+('Sarah', 'Naidoo', 'SarahN@gmail.com', 'HASHED_PASSWORD_2', 'Organiser', ' 0765443028'),
+('Lerato', 'Dlamini', 'LeratoDlamini@gmail.com', 'HASHED_PASSWORD_3', 'Organiser', '0720754276'),
+(' Jonny', 'Lopez', 'JonLopez@gmail.com', 'HASHED_PASSWORD-4'), 'Organiser', ' 0812168042');
+
   
   
