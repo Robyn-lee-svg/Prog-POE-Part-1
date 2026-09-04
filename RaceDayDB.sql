@@ -26,7 +26,7 @@ Create table Events(
 EventID INT IDENTITY(1,1) PRIMARY KEY,
 OrganiserID INT NOT NULL,
 Name VARCHAR(150) NOT NULL,
-Description VARCHAR(500) NULL,
+
 EventDate DATE NOT NULL,
 Location VARCHAR(200) NOT NULL,
 Distance DECIMAL(6,2) NOT NULL,
@@ -43,3 +43,18 @@ Create table Categories(
   Description VARCHAR(255) NULL,
   CONSTRAINT FK_Category_Event FOREIGN KEY(EventID) REFERENCES Events(EventID) ON DELETE CASCADE
   );
+
+Create table Enrolments(
+  EnrolmentID INT IDENTITY(1,1) PRIMARY KEY,
+  ParticipantID INT NOT NULL,
+  EventID INT NOT NULL,
+  CategoryID INT NOT NULL,
+  EnrolmentDate DATE NOT NULL DEFAULT GETDATE(),
+  Status VARCHAR(20) NOT NULL DEFAULT 'Confirmed',
+  CONSTRAINT FK_Enrolment_Participant FOREIGN KEY(ParticipantID REFERENCES Users(UserID),
+  CONSTRAINT FK_Enrolment_Event FOREIGN KEY(EventID) REFERENCES Events(EventID),
+  CONSTRAINT FK_Enrolment_Category FOREIGN KEY(CategoryID) REFERENCES Categories(CategoryID),
+  CONSTRAINT CK_Enrolment_Status CHECK (Status IN ('Pending', 'Confirmed', 'Cancelled')),
+  CONSTRAINT UQ_Participant_Event UNIQUE (ParticipantID, EventID)
+  );
+  
