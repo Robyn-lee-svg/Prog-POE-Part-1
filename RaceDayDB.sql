@@ -67,5 +67,13 @@ Create table Results(
   CONSTRAINT FK_Result_Enrolment FOREIGN KEY(EnrolmentID) REFERENCES Enrolments(EnromentID),
   CONSTRAINT CK_Result_Position CHECK(FinishPosition >0)
   );
+
+Create table EventBanners(
+  BannerID INT IDENTITY(1,1) PRIMARY KEY,
+  EventID INT NOT NULL UNIQUE,
+  ImageURL VARCHAR(500) NOT NULL,
+  UploadedDate DATE NOT NULL DEFAULT GETDATE(),
+  CONSTRAINT FK_Banner_Event FOREIGN KEY(EventID) REFERENCES Events(EventID) ON DELETE CASCADE
+  );
   
   
