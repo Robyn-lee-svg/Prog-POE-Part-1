@@ -52,7 +52,7 @@ Create table Enrolments(
   CategoryID INT NOT NULL,
   EnrolmentDate DATE NOT NULL DEFAULT GETDATE(),
   Status VARCHAR(20) NOT NULL DEFAULT 'Confirmed',
-  CONSTRAINT FK_Enrolment_Participant FOREIGN KEY(ParticipantID REFERENCES Users(UserID),
+  CONSTRAINT FK_Enrolment_Participant FOREIGN KEY(ParticipantID )REFERENCES Users(UserID),
   CONSTRAINT FK_Enrolment_Event FOREIGN KEY(EventID) REFERENCES Events(EventID),
   CONSTRAINT FK_Enrolment_Category FOREIGN KEY(CategoryID) REFERENCES Categories(CategoryID),
   CONSTRAINT CK_Enrolment_Status CHECK (Status IN ('Pending', 'Confirmed', 'Cancelled')),
@@ -65,7 +65,7 @@ Create table Results(
   FinishTime TIME NOT NULL,
   FinishPosition INT NOT NULL,
   ResultDate DATE NOT NULL DEFAULT GETDATE(),
-  CONSTRAINT FK_Result_Enrolment FOREIGN KEY(EnrolmentID) REFERENCES Enrolments(EnromentID),
+  CONSTRAINT FK_Result_Enrolment FOREIGN KEY(EnrolmentID) REFERENCES Enrolments(EnrolmentID),
   CONSTRAINT CK_Result_Position CHECK(FinishPosition >0)
   );
 
@@ -82,7 +82,7 @@ VALUES
 ('Jamie', 'Smith', 'jamieSmittie@gmail.com','HASHED_PASSWORD_1', 'Organiser', ' 0823334589'),
 ('Sarah', 'Naidoo', 'SarahN@gmail.com', 'HASHED_PASSWORD_2', 'Organiser', ' 0765443028'),
 ('Lerato', 'Dlamini', 'LeratoDlamini@gmail.com', 'HASHED_PASSWORD_3', 'Organiser', '0720754276'),
-(' Jonny', 'Lopez', 'JonLopez@gmail.com', 'HASHED_PASSWORD-4'), 'Organiser', ' 0812168042');
+(' Jonny', 'Lopez', 'JonLopez@gmail.com', 'HASHED_PASSWORD-4', 'Organiser', ' 0812168042');
 
 INSERT INTO Profiles(UserID, Address, ProfilePictureURL)
 VALUES
