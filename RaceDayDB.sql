@@ -13,8 +13,13 @@ Role VARCHAR(20) NOT NULL,
 Phone VARCHAR(20) NULL,
 CONSTRAINT CK_Uer_Role CHECK (Role IN('Organiser', 'Participant'))
 );
-
-
+Create table Profiles(
+  ProfileID INT IDENTITY(1,1) PRIMARY KEY,
+  UserID INT NOT NULL UNIQUE,
+  Address VARCHAR(255) NULL,
+  ProfilePictureURL VARCHAR(500) NULL,
+  FOREIGN KEY (UserID) REFERENCES Users(UserID)
+  );
 
 Create table Events(
 EventID INT IDENTITY(1,1) PRIMARY KEY,
