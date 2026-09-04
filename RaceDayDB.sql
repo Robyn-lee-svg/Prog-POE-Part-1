@@ -118,6 +118,11 @@ VALUES
 (3,2,6, 'Confirmed'),
 (4,3,9, 'Confirmed');
 
+INSERT INTO Results(EnrolmentID, FinishTime, FinishPosition)
+Values
+(1, '00:50:35', 46),
+(2, '00:57:12', 67);
+
 
 
 
